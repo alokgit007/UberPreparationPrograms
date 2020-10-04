@@ -1,0 +1,35 @@
+(1,2,3,4,5) -> (1,4),(2,3)
+
+[ [[1,4],[2,3]] , [[3,4],[2,5]] ]
+
+List<List<Integer[]>> 
+
+
+possiblePairs(int[] array){
+ Map<Integer, List<Integer[]>> map = new HashMap<>();
+
+for(int i=0;i<array.length;i++){
+ for(int j=i+1;j<array.length;j++){
+  int sum = array[i]+array[j]; 
+  Integer[] pair = {array[i],array[j]}; 
+     if(!map.containsKey(sum)){
+     List<Integer[]> list = new ArrayList<>();
+     list.add(pair);
+     map.put(sum,list);
+}
+else{
+List<Integer[]> existlist = new ArrayList<>();
+     existlist.add(pair);
+     map.put(sum,existlist);
+}
+}
+}
+
+for(Entry<Integer, List<Integer[]>> entry:map.entrySet()){
+ List<Integer[]> values = entry.getValue();
+  if(value>1){
+for(Integer[] value : values){
+System.out.println(value);
+}
+}
+}

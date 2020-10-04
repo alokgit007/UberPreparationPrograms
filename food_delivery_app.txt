@@ -1,0 +1,10 @@
+user -> order placed -> accept/reject -> resturent -> prepare order -> food ready for pickup -> send message to courier -> accept/reject -> pickup order -> delivered
+
+user (/order)-> load balancer -> app server -> kafka queue(partition as per location) -> order processor -> notification service (sending notification to resturent) -> update order table -> resturent -> dispatch -> send notification to drivers 
+
+user - id, name, location, mobile
+resturent - id , name, location, 
+order - id, rest id, cart id, state, driver id
+cart - id, value
+courier - id, name
+

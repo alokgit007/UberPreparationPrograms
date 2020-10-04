@@ -1,0 +1,18 @@
+design pattern microservices
+
+answer should be crisp
+
+microservices version in API gateway, in annotation
+
+adv - scalablity , deplyment faster, ease of undestanding , eleminate technology locking, choosing vendor, falut isolation 
+
+disadv - communication between services, more services more resources, testing , maintaining logs, debugging hard, deployment n num, good for big company
+
+kafka - why, achync, scalablity
+
+design - list of services - resturent table , table chair, table & booking, admin feature
+
+time complexity, space complexity
+
+
+

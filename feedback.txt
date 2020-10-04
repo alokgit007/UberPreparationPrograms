@@ -1,0 +1,39 @@
+
+user -> 
+Resuturent -> Resurent servive
+Kitchen -> kitchen service
+Notification -> Notification servive
+
+
+request 
+
+
+feedback :
+
+1. bug fix in prod - raise PR
+2. kafka ?
+3. Microservices - communication ? not through api gateway 
+4. secutiry - oauth, monitoring
+5. scalablity - 
+6. fault tolrerance - through circuit breaker
+7. serviceDiscovery
+
+pelinSubstring(String s){
+ Set<String> set = new HashSet<String>;
+ for(int i=0;i<s.length();i++){
+  expand(s,i,i,set);
+  expand(s,i,i+1,set)
+}
+sop(set);
+}
+
+Hashset<String >expand(String s, int low, int high, hashSet<String> set){
+while(low>=0 && high <s.length && s.charAt(low) == s.charAt(high)){
+set.add(s.subString(low,high+1));
+low--;
+high++;
+}
+}
+
+kaushik - java brains
+dynamic programming

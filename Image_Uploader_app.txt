@@ -1,0 +1,36 @@
+Photo Uploader app
+__________________
+
+select photo(type) -> upload photo -> server(capacity)
+
+photo - type, id, name, size - valid/invalid type, size should be less then 100 kb
+
+scaling: consider server timeout & crashing server. suppose trying to upload 10mb image then
+1. 10mb should allocated to server
+2. a request handler should be associated all the time the image getting uploaded
+3. CPU usages to deal with image upload
+
+Security: secure way 
+
+Authorization : not all images should be publicly available
+
+
+
+Use case :
+1. Uploading the image to front end
+2. Authorizing user to download image
+3. Authorizing user to upload image
+4. Uploading image to your server in scalable way
+5. Validating image data
+6. processing the image, performing cropping, optimization & other tasks
+7. Creating image thumbnail, banner
+8. storing the image
+
+steps:
+1. client request an upload url from the server
+2. client upload the image data to upload url
+3. client tells server upload is completed
+4. server process the image in background
+5. client check the image processing status
+6. server is done processing image , notifies client
+

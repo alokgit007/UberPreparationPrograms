@@ -1,0 +1,5 @@
+Kafka : highly scalable and distributed platform for creating and processing data in real time.
+
+Topic Partitions - Small independent portion of topic stored in single machine)
+
+Partition offset - unique seq id in the partition of a msg(in order of arrival)
