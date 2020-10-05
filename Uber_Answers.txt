@@ -1,52 +1,60 @@
 Following are various concepts we need to focus
-Difference between design and architecture ñ 1. architecture is for entire system . However design is particularly for a system component.
+Difference between design and architecture ‚Äì 1. architecture is for entire system . However design is particularly for a system component.
 2. architecture focus on abstraction that can be used by the multiple design. But, Design is the concrete plan to build something. Ex: Apartment
-2) Microservices design patterns (domain based and event based) ñ
+2) Microservices design patterns (domain based and event based) ‚Äì
 Event based design works in asynchronous way like Node js where they communicate through event message.
 In domain based design, you can solve complex domain model. The solution revolves around the business model by connecting the implementation of core business model.
 3) about various microservices concepts
-- API gateway ñ is a service thatís entry point into the application from outside world. Itís responsible for ìRequest routingî, ìAPI compositionî, ìprotocol translationî & ìimplementing edge services(authorization, authentication, logging, caching, metrices collection, rate limiting)
-- Fault tolerance ñ to work the system continuously operating without interruption when one or more components fails.
+- API gateway ‚Äì is a service that‚Äôs entry point into the application from outside world. It‚Äôs responsible for ‚ÄúRequest routing‚Äù, ‚ÄúAPI composition‚Äù, ‚Äúprotocol translation‚Äù & ‚Äúimplementing edge services(authorization, authentication, logging, caching, metrices collection, rate limiting)
+- Fault tolerance ‚Äì to work the system continuously operating without interruption when one or more components fails.
 - Service discovery- actual process to know how to connect to a service. Each service updates service registry when server instances start or stop. When client invokes a service, the service discovery mechanism query service registry.
-- Circuit breakers ñ to check the continuous failure of rest API, we define a threshold if failure goes beyond that it notifies to stop the sending request for particular time.
-- Scaling of microservices ñ Scaling :
+- Circuit breakers ‚Äì to check the continuous failure of rest API, we define a threshold if failure goes beyond that it notifies to stop the sending request for particular time.
+- Scaling of microservices ‚Äì Scaling :
 When you are running a single monolithic application from a single server, you can handle an increase in demand by allocating more resources to the application.
 With microservices, on the other hand, upscaling can involve handling a number of different components and services. This means that either all the components need to upscale at the same time, or you need a means of identifying which individual components to upscale, and a method of ensuring that they can still integrate with the rest of the system.
 When scaling microservices, you need to consider both the individual comp	onents and the system as a whole.
-- security management of microservices- Security- Use OAuth for user identity and access control, crypto code - handle encryption and decryption (you should use†NaCl/libsodium†for encryption, wildly popular†Bouncy Castle†library.), Monitor everything with a tool like Prometheus
-- communication between microservices ñ 
-1. Synchronous communication ñ In this, a service calls other service exposed api through http/gPRC protocol. This is the synchronous messaging pattern bcoz caller wait for the response.
-2. Asynchronous communication ñ In this, sender sends a message without waiting for a response.
-- coordination/communication issues and other issues related to microservices - Teams implementing different microservices must be able ìto talkî to each other during a sprint, so a change can be implemented parallel in a coordinated way. If you cannot have short-lived ìfeature teamsî across the microservices teams, at least nominate someone in each team to be responsible for the communication and coordination with the other teams for that specific feature. Ensure that project planning takes into account the extra communication and coordination effort for cross-microservice activities.
-- orchestration and monitoring of microservices ñ Prometheus 
+- security management of microservices- Security- 1.HTTPS 2. Authetication - Verifying the identity of the application or human - a user ID and password or
+an application‚Äôs API key and secret. USing API gateway 3. Authorization - Applications often use a combination of rolebased security and access control lists (ACLs). Use OAuth(authorization protocol, Access Token, Refresh Token) for user identity and access control 3. crypto code - handle encryption and decryption (you should use¬†NaCl/libsodium¬†for encryption, wildly popular¬†Bouncy Castle¬†library.) 4. Monitor everything with a tool like Prometheus 4. Auditing 5. Secure interprocess communication
+- communication between microservices ‚Äì 
+1. Synchronous communication ‚Äì In this, a service calls other service exposed api through http/gPRC protocol. This is the synchronous messaging pattern bcoz caller wait for the response.
+2. Asynchronous communication ‚Äì In this, sender sends a message without waiting for a response.
+- coordination/communication issues and other issues related to microservices - Teams implementing different microservices must be able ‚Äúto talk‚Äù to each other during a sprint, so a change can be implemented parallel in a coordinated way. If you cannot have short-lived ‚Äúfeature teams‚Äù across the microservices teams, at least nominate someone in each team to be responsible for the communication and coordination with the other teams for that specific feature. Ensure that project planning takes into account the extra communication and coordination effort for cross-microservice activities.
+- orchestration and monitoring of microservices ‚Äì Prometheus 
 - example questions
 some quick questions about the manageability of a microservices deployment: 
-ï Some quick questions about the manageability of a microservices deployment:
- ï How do we start and stop a fleet of services? ï 
-How do we aggregate logs/metrics/SLAs across microservices? ï - Central log system
+‚Ä¢ Some quick questions about the manageability of a microservices deployment:
+ ‚Ä¢ How do we start and stop a fleet of services? ‚Ä¢ 
+How do we aggregate logs/metrics/SLAs across microservices? ‚Ä¢ - Central log system
 How do we discover services in an elastic environment where they can be coming, going, moving, etc.?
- ï How do we do load balancing? ñ Load balancing defined as efficient way of distribution of network/application traffic across multiple servers. It sits between client device & backend servers, receiving and distributing incoming requests to any available server to fulfill that. -- Kubernetes using kube-proxy which manages virtual IP used by Service
-ï How do we learn about the health of our cluster or individual services? 
-ï How do we restart services that have fallen over? 
-ï How do we do fine-grained API routing? 
-ï How do we secure our services? 
-ï How do we throttle or disconnect parts of a cluster if it starts to crash or act unexpectedly? 
-ï How do we deploy multiple versions of a service and route to them appropriately? 
-ï How do we make configuration changes across a large fleet of services?
+ ‚Ä¢ How do we do load balancing? ‚Äì Load balancing defined as efficient way of distribution of network/application traffic across multiple servers. It sits between client device & backend servers, receiving and distributing incoming requests to any available server to fulfill that. -- Kubernetes using kube-proxy which manages virtual IP used by Service
+‚Ä¢ How do we learn about the health of our cluster or individual services? 
+‚Ä¢ How do we restart services that have fallen over? 
+‚Ä¢ How do we do fine-grained API routing? 
+‚Ä¢ How do we secure our services? 
+‚Ä¢ How do we throttle or disconnect parts of a cluster if it starts to crash or act unexpectedly? 
+‚Ä¢ How do we deploy multiple versions of a service and route to them appropriately? 
+‚Ä¢ How do we make configuration changes across a large fleet of services?
+
 Microservices: Advantages:
-It enables CI/CD approach continuous Integration & continuous Deployment to develop a large & complex application.
-Services are small & easily maintained
-Services are independently scalable
-Services are independently deployable
-It allows easy experimenting & adopting the new technologies
-It has better fault tolerance.
+1. scalablity - Services are independently scalable
+2. Deployment faster - Services are independently deployable
+It enables CI/CD approach continuous Integration & continuous Deployment to develop a large & complex application.(Automated tests easier since services are small , deployments will be eaiser, team will loosely coupled)
+3. Easy to understand - Services are small & easily maintained
+4. Eliminate technology locking - It allows easy experimenting & adopting the new technologies
+5. Choosing vendor - easy
+6. It has better fault tolerance.
 Disadvantages:
-Finding a right set of services is challenging
-Distributed systems are complex which make development, testing & deployment complex
-Deploying feature which involves multiple services requires careful coordination
+1. Communication between services is complex 
+2. More services more resources - Deploying feature which involves multiple services requires careful coordination
+3. Finding a right set of services is challenging
+4. Testing & Deployment complex - Distributed systems are complex which make development, testing & deployment complex
+5. Debugging complex
+6. Deployment complex
+7. Maintaining logs difficult
+
 MySQL vs NoSQL :
 MySQL is static schema based where you have to follow predefined structure of your data when change in structure will happen then it will be difficult for whole system. But, NoSQL has dynamic schema for unstructured data. Data can be stored in multiple ways document based, column based, graph based, .This flexibility means that documents can be created without having defined structure. Also, each document can have its own unique structure.
-SQL dbís are vertically scalable. This means you can increase load on a single server by increasing RAM, CPU or SSD. But, on the other side, NoSQL dbís are horizontally scalable. This means that you can handle more traffic by increasing more servers.
+SQL db‚Äôs are vertically scalable. This means you can increase load on a single server by increasing RAM, CPU or SSD. But, on the other side, NoSQL db‚Äôs are horizontally scalable. This means that you can handle more traffic by increasing more servers.
 SQL follow ACID(Atomicity, Consistency, Isolation, Durability) property where as NoSQL follows Brewers CAP theorem.(Consistency, Availability, Partition tolerance)
 SQL DBs are table based on the other hand NoSQL DBs are key-value pairs, document based or graph based.
 
@@ -63,20 +71,20 @@ While explaining the design we need to explain each component, interaction betwe
 2. find first duplicate character in the string
 3. Find whether 2 strings are anagrams :
 Fried --- fired
-Gainly ñ laying
-Sadder ñ dreads
-4. Suppose there are 2 strings source =îabcdeî target =îabî . Your program should return true if target is there in source. And also if the reverse of target is there in source
+Gainly ‚Äì laying
+Sadder ‚Äì dreads
+4. Suppose there are 2 strings source =‚Äùabcde‚Äù target =‚Äùab‚Äù . Your program should return true if target is there in source. And also if the reverse of target is there in source
 5. An array has numbers from 1 to 20 . some of the numbers are missing if we sort the numbers in asending order. Find out the missing numbers.
 6. Find the first non repeating character in a string eg: helloworld h is the answer.
 7. Find the palindromic permutations for Malayalam.
-8. Give an array of anagrams [ìFriedî, ìGainlyî ,îfiredî, ìdreadsî ,îlayingî, ìSadderî ,îgodî, ìgoatî]
+8. Give an array of anagrams [‚ÄúFried‚Äù, ‚ÄúGainly‚Äù ,‚Äùfired‚Äù, ‚Äúdreads‚Äù ,‚Äùlaying‚Äù, ‚ÄúSadder‚Äù ,‚Äùgod‚Äù, ‚Äúgoat‚Äù]
 Group them as follows:
 [
-[ìFriedî, îfiredî],
-[ìGainlyî, îlayingî],
-[ìdreadsî, ìSadderî],
-[ìgodî],
-[ìgoatî]
+[‚ÄúFried‚Äù, ‚Äùfired‚Äù],
+[‚ÄúGainly‚Äù, ‚Äùlaying‚Äù],
+[‚Äúdreads‚Äù, ‚ÄúSadder‚Äù],
+[‚Äúgod‚Äù],
+[‚Äúgoat‚Äù]
 ]
 9. Find out all palindromic substrings from a give string eg: aabbaacabcadadad
 10. Problem Statement:
