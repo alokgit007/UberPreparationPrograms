@@ -53,10 +53,15 @@ Disadvantages:
 7. Maintaining logs difficult
 
 MySQL vs NoSQL :
-MySQL is static schema based where you have to follow predefined structure of your data when change in structure will happen then it will be difficult for whole system. But, NoSQL has dynamic schema for unstructured data. Data can be stored in multiple ways document based, column based, graph based, .This flexibility means that documents can be created without having defined structure. Also, each document can have its own unique structure.
-SQL db’s are vertically scalable. This means you can increase load on a single server by increasing RAM, CPU or SSD. But, on the other side, NoSQL db’s are horizontally scalable. This means that you can handle more traffic by increasing more servers.
-SQL follow ACID(Atomicity, Consistency, Isolation, Durability) property where as NoSQL follows Brewers CAP theorem.(Consistency, Availability, Partition tolerance)
-SQL DBs are table based on the other hand NoSQL DBs are key-value pairs, document based or graph based.
+1.MySQL is static schema based where you have to follow predefined structure of your data when change in structure will happen then it will be difficult for whole system. 
+But, NoSQL has dynamic schema for unstructured data. Data can be stored in multiple ways document based, column based, graph based, 
+.This flexibility means that documents can be created without having defined structure. Also, each document can have its own unique structure.
+2.SQL db’s are vertically scalable. This means you can increase load on a single server by increasing RAM, CPU or SSD. 
+But, on the other side, NoSQL db’s are horizontally scalable. This means that you can handle more traffic by increasing more servers.
+3. SQL follow ACID(Atomicity, Consistency, Isolation, Durability) property 
+where as NoSQL follows Brewers CAP theorem.(Consistency, Availability, Partition tolerance)
+4. SQL DBs are table based on the other hand 
+NoSQL DBs are key-value pairs, document based or graph based.
 
 
 4) System designs
