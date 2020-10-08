@@ -24,11 +24,13 @@ an application’s API key and secret. USing API gateway 3. Authorization - Appl
 some quick questions about the manageability of a microservices deployment: 
 • Some quick questions about the manageability of a microservices deployment:
  • How do we start and stop a fleet of services? • 
+Fleetctl start/stop service_name (start cluster)
 How do we aggregate logs/metrics/SLAs across microservices? • - Central log system
 How do we discover services in an elastic environment where they can be coming, going, moving, etc.?
  • How do we do load balancing? – Load balancing defined as efficient way of distribution of network/application traffic across multiple servers. It sits between client device & backend servers, receiving and distributing incoming requests to any available server to fulfill that. -- Kubernetes using kube-proxy which manages virtual IP used by Service
 • How do we learn about the health of our cluster or individual services? 
 • How do we restart services that have fallen over? 
+Kubectl run -it --rm --restart=never Alpine --image=Alpine sh
 • How do we do fine-grained API routing? 
 • How do we secure our services? 
 • How do we throttle or disconnect parts of a cluster if it starts to crash or act unexpectedly? 
